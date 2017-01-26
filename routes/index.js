@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:reqDate', function(req, res, next) {
-    res.render('index', { title: 'Express', 'reqDate': "params.reqDate" });
+    res.render('index', { title: 'Express', reqDate: req.params.reqDate });
     // //    res.sendfile('index.html');
 });
 
