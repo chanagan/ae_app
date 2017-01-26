@@ -25,6 +25,8 @@ build/Release
 # Dependency directory
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
 node_modules
+public/jquery
+public/jquery-ui
 
 # Debug log from npm
 npm-debug.log
