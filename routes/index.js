@@ -3,8 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    //  res.render('index', { title: 'Express' });
-    res.sendfile('index.html');
+    res.render('index', { title: 'Express' });
+    // //    res.sendfile('index.html');
+});
+
+router.get('/:reqDate', function(req, res, next) {
+    res.render('index', { title: 'Express', 'reqDate': "params.reqDate" });
+    // //    res.sendfile('index.html');
 });
 
 module.exports = router;

@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
-</html>
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    res.render('index', { title: 'Express' });
+    // //    res.sendfile('index.html');
+});
+
+router.get('/:reqDate', function(req, res, next) {
+    res.render('index', { title: 'Express', 'reqDate': reqDate });
+    // //    res.sendfile('index.html');
+});
+
+module.exports = router;
