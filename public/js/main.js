@@ -1,6 +1,7 @@
 $(document)
-  .ready(function () {
-    alert('test');
+    .ready(function() {
+        var rdt = $('#rqdt').text();
+        alert('test:' + rdt);
 
-    console.log("ready!");
-  });
+        console.log("ready!");
+    });
