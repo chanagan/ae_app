@@ -1,6 +1,6 @@
 $(document)
     .ready(function() {
-        var rdt = $('#rqdt').text();
+        var rdt = $('#hdrDateA').text();
         alert('test:' + rdt);
 
         console.log("ready!");
