@@ -1,0 +1,34 @@
+﻿/*
+
+    this goes in after the other style sheets
+*/
+
+.ui-widget
+{
+    font-family: Calibri, sans-serif;
+    font-size: 10pt;
+}
+.ui-widget .ui-widget
+{
+    font-size: 8pt;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button
+{
+    font-family: Calibri, sans-serif;
+    font-size: 8pt;
+}
+
+.ui-widget-overlay
+{
+    opacity: .60;
+    filter: Alpha(Opacity=60);
+}
+
+.ui-slider .ui-slider-handle
+{
+    width: .7em;
+    height: 1.0em;
+}
+
+
+.ui-slider-horizontal { height: .6em; }
