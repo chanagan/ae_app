@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Air Execution Daily</title>
+    <link rel='stylesheet' href='/css/main.css' />
+    <link href="jquery-ui/themes/sunny/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="css/ui-widget-override.css" rel="stylesheet" type="text/css" />
+
+    <script src="/jquery/jquery.js">
+    </script>
+    <script src="/js/main.js">
+    </script>
+</head>
+
+<body>
+    <div id='airPlanDiv'>
+        <div id='header'>Air Execution
+            <span id='hdrDateA'>{{reqDate}}</span>
+        </div>
+        <div id='content'>
+            <table border='0' width='100%' cellspacing="0" cellpadding='0' class="msnGrid">
+                <thead>
+                    <tr class="gridHeader">
+                        <!--
+ 			<td colspan=2>
+				Test Add a Flight 
+				&nbsp;&nbsp;&nbsp;
+				<img style="vertical-align:bottom;" 
+					src="../icons/add-blue.png" 
+					alt="Add a new flight" height="16" width="16"
+					onclick="popupAddFlightNew(); return false;" />
+
+            </td>
+            <td colspan='15' >
+-->
+                        <td colspan='17'>
+                            Schedule for
+                            <input type="text" id="requestDate" size="12" maxlength="12" class="entryField">
+                        </td>
+                        <td>Add a Flight &nbsp;&nbsp;&nbsp;
+                            <a href="http://www.jiatfs.southcom.smil.mil:82/EDB/missions/air/dataPage.html?action=add&mode=airExec" target='_new'>
+                                <img style="vertical-align: bottom;" src="../icons/add-blue.png" alt="Add a new flight" height="16" width="16" />
+                            </a>
+                            <!--
+ 			<img style="vertical-align: bottom;" src="../icons/add-blue.png"
+				alt="Add a new flight" height="16" width="16"
+				onclick="popupAddFlight(); return false;" />
+-->
+
+                        </td>
+                    </tr>
+                    <tr class="colHeader" id="colLbls">
+                    </tr>
+                </thead>
+                <tbody id='gridTblBdy' class="gridBody">
+                </tbody>
+            </table>
+
+            <!--
+Air missions for 03 May as entered by J3 Air Shop 
+    <a href="http://icehouse.jiatfs.southcom.smil.mil:82/EDB/missions/air/index.html">here</a>
+<br />
+Mission <Some Name> for 03 May - using <Some Name> 
+<a href="http://icehouse.jiatfs.southcom.smil.mil:82/EDB/missions/air/amFrame.html?action=upd&msntag=9ccb1c4c-b0fb-4a42-acf0-e666d5017fc1&period=61">here</a>
+<br />
+Detail for <Some Name> 
+<a href="http://icehouse.jiatfs.southcom.smil.mil:82/EDB/assets/air/aaFrame.html?aatag=68eeb262-5abf-4c1e-958c-d2764b909ba4">here</a>
+<br />
+-->
+        </div>
+
+
+    </div>
+
+
+    <!--    {{{body}}} -->
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+
+#ovl 
+{
+    display: none;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+#blnk 
+{
+    background-color: #000;
+    top: 0; bottom: 0; left: 0;
+    display: block;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    -ms-filter: "progid:DXImageTranform.Microsoft.Alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+}
+
+#blanket
+{
+    z-index: 9001; /* over nine thousand */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    -ms-filter: "progid:DXImageTranform.Microsoft.Alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    background-color: #666;
+    background-color: #111;
+    background-color: #333;
+    
+}
+/*
+    background-image: url('cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png');
+    background-image: url('cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png');
+*/
+
+.popWin{
+	text-align: center;
+	display: none;
+	}
+	
+.dial 
+{
+    display: none;
+    margin: 100px auto;
+    position: relative;
+    width: 500px;
+    padding: 40px;
+    background: white;
+    -moz-border-radius: 10px;
+}
+
+.editFormHdr 
+{
+    font-size: 10pt;
+    background-color:Gray;
+	background-color:#67D;
+    color:White;
+	border-bottom: solid 1px;
+	border-bottom-color: #000;
+	letter-spacing: 0.2em;
+	text-align: center;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.editFormBody 
+{
+    
+    background-image: url('cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png');
+}
+/*
+    background-image: url('cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png');
+    background-image: url('cupertino/images/ui-bg_glass_100_e4f1fb_1x400.png');
+    background-image: url('cupertino/images/ui-bg_glass_80_d7ebf9_1x400.png');
+    background-image: url('cupertino/images/ui-bg_highlight-hard_70_000000_1x100.png');
+    background-image: url('cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png');
+    background-image: url('cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png');
+    background-image: url('cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png');
+    background-image: url('cupertino/images/ui-bg_glass_50_3baae3_1x400.png');
+    background-color: #04c;
+    background-color: #ccc;
+*/
+
+.editFormFtr 
+{
+    font-size: 10pt;
+    background-color:#67D;
+    background-color:Gray;
+    color:White;
+	border-top: solid 1px;
+	border-top-color: #000;
+	text-align: center;
+}
+
+#msnEditFrame
+{
+	border: 2px solid;
+	border-color: #ffc8a4 #7d3302 #3f1a01 #ff9a57;
+	border-color: #cff #699 #366 #9cc;
+	border-color: #333 #ccc #ccc #333;
+	border-color: #666 #ccc #ccc #666;
+	padding: 5px;
+	margin: 5px;
+    background-color: #ff9;
+}
+
+#execEditFormHdr
+{
+    font-size: 10pt;
+    background-color:#67D;
+    background-color:Gray;
+    background-color: #ff9;
+    color:#04c;
+	border-top: solid 1px;
+	border-top-color: #000;
+	letter-spacing: 0.2em;
+	
+}
+
+#hdrTitle 
+{
+    background-color: #04c;
+    color:#ff9;
+	letter-spacing: 0.2em;
+	padding: 5px;
+	border-bottom: 2px solid #0f0;
+}
+
+#execEditFormFtr
+{
+    font-size: 10pt;
+    background-color:#67D;
+    background-color:Gray;
+    background-color: #ff9;
+    color:White;
+}
+
+/*
+	border-top: solid 1px;
+	border-top-color: #000;
+*/
+
+#execEditForm
+{
+    z-index: 9002;  /*over nine thousand*/
+    position: absolute;
+    background-color: #eee;
+	background-color:	ThreeDFace;
+    background-color: #ff9;
+    width: 800px;
+    left: 220px;
+    top: 50px;
+    height: auto;
+    display: none;
+}
+
+#execEditForm table 
+{
+    border: collapse;
+}
+
+#editYnForm
+{
+    width: 180px;
+    left: 320px;
+    left: 250px;
+    top: 160px;
+    top: 45px;
+}
+/*
+    z-index: 9002;  /*over nine thousand* /
+    position: absolute;
+    background-color: #eee;
+	background-color:	ThreeDFace;
+    display: none;
+*/
+
+#editYnForm table 
+{
+    border: collapse;
+}
+
+.editForm 
+{
+    z-index: 9002;  /*over nine thousand*/
+    position: absolute;
+    display: none;
+   	border: 3px solid;
+   	border-style:groove;
+	border-color: #ffc8a4 #7d3302 #3f1a01 #ff9a57;
+	border-color: #cff #699 #366 #9cc;
+	border-color: #666 #ccc #ccc #666;
+	border-color: #333 #333 #333 #333;
+	border-color: #333 #ccc #ccc #333;
+	border-color: #666 #666 #666 #666;
+}
+
+#editDtgForm
+{
+    width: 320px;
+    left: 320px;
+    left: 250px;
+    top: 160px;
+    top: 45px;
+}
+/*
+    background-color: #eee;
+	background-color:	ThreeDFace;
+    background-color: #cd0a0a;
+*/
+
+#editDtgForm table 
+{
+    border: collapse;
+}
+
+#editStatusForm
+{
+    width: 300px;
+    left: 320px;
+    left: 250px;
+    top: 160px;
+    top: 45px;
+}
+/*
+    z-index: 9002;  /*over nine thousand* /
+    position: absolute;
+    background-color: #eee;
+	background-color:	ThreeDFace;
+    display: none;
+*/
+
+#editStatusForm table 
+{
+    border: collapse;
+}
+
+

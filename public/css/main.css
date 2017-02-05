@@ -1,0 +1,526 @@
+/*  reset all styles to normal */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+fieldset,
+form,
+label,
+legend,
+table
+/* , caption , tbody , tfoot , thead , tr , th , td */
+
+{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: 0px;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+
+/*
+	background-color: inherit;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    
+	background-color: #cff;
+	background-color: #ccc;
+	background-color: #EEA;
+	background-color: #efefef;
+    
+*/
+
+body {
+    line-height: 1em;
+    height: 99%;
+    width: 95%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, sans-serif;
+    font-family: Lucida Console, sans-serif;
+    font-family: Comic Sans MS, sans-serif;
+    font-family: Trebuchet MS, sans-serif;
+    font-family: Calibri;
+}
+
+#content {
+    height: 100%;
+    max-height: 100%;
+    position: absolute;
+    z-index: 3;
+    top: 43px;
+    right: 0px;
+    left: 0px;
+    /*	
+	border-style: solid;
+	border-width: 3px 3px 2px 3px;
+	border-color: black;
+*/
+}
+
+#showDebug {
+    font-size: 8pt;
+    color: green;
+}
+
+.gridHeader {
+    background-image: url(../images/vista-tabs2.png);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px 3px 2px 3px;
+    border-color: blue;
+}
+
+.colHeader {
+    background-image: url(../images/vista-tabs1.png);
+    background-repeat: repeat-x;
+    background-position: left middle;
+    height: 35px;
+    font-size: 9pt;
+    font-weight: bold;
+    text-align: center;
+    line-height: 9pt;
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: #fff;
+}
+
+.colHeader td {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#header {
+    position: absolute;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 12pt;
+    font-weight: bold;
+    z-index: 5;
+    overflow: auto;
+    color: steelblue;
+    text-align: center;
+    padding-top: 14px;
+    /*  
+	background-color: #efefef;
+		background-color: #04c; 
+	*/
+}
+
+#footer {
+    position: absolute;
+    margin: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 300px;
+    font-size: 1em;
+    z-index: 5;
+    overflow: auto;
+    background-color: #c60;
+    display: none;
+    display: block;
+}
+
+#footerTrail {
+    background-color: #c60;
+    border-top: 4px solid #888;
+}
+
+.highlight {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+    text-decoration: underline overline;
+    font-style: italic;
+    background-color: #39c;
+    color: #fff;
+    border: solid 1px;
+    border-color: #aaa;
+}
+
+select {
+    text-decoration: none;
+    font-size: 8pt;
+    font-weight: normal;
+    font-style: normal;
+    border: solid 1px;
+    border-color: #aaa;
+    padding: 1px;
+}
+
+
+/***** START old styling that Di replaced
+.msnMarker
+{
+	background-color: #9fc;
+	background-color: #dfd;
+	color: darkgreen;
+	font-weight: bold;
+}
+ ***** END old styling that Di replaced */
+
+
+/***** START new styling From Di */
+
+.tmpUnderway,
+.msnUnderway,
+.tmpCompl,
+.msnCompl,
+.msnLate,
+.msnErr,
+.error {
+    font-weight: bold;
+}
+
+.msnUnderway {
+    color: blue;
+}
+
+.tmpCompl {
+    color: #bbb;
+}
+
+.msnCompl {
+    color: #ccc;
+    color: #666;
+    font-size: 8px;
+    background-color: #cff;
+}
+
+.msnLate {
+    text-decoration: italics;
+    /* Modded by Di; was maroon from '#f00' */
+}
+
+.msnErr,
+.error {
+    color: red;
+}
+
+
+/***** END new styling From Di */
+
+.actImg {
+    color: blue;
+}
+
+.msnCanx {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 6pt;
+    background-color: #fcc;
+}
+
+.canEdit {
+    background: #fff;
+    background: #ffe;
+    cursor: pointer;
+}
+
+.doEdit {
+    background-color: #9c0;
+    background-color: #6f0;
+    background-color: #cf9;
+    border: solid 1px black;
+}
+
+.msnGrid {
+    background-color: #ddd;
+    background-color: #ccc;
+    /*
+*/
+}
+
+
+/*
+	color: #444;
+	border: solid 1px black;
+	background-color: #efefef;	/* Modded by Di; was 'white' */
+
+* / .gridBody td {
+    background-color: mauve;
+}
+
+.tOpt {
+    color: blue;
+    display: none;
+}
+
+.alertEmphatic {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.msnGrid td {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #888;
+    border-color: #000;
+}
+
+
+/*
+	border: solid 1px #efefef;
+	border: solid 1px #888;
+	
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #888;
+
+	border: solid 1px #efefef;	
+	border: solid 0px 0px 1px 0px #888 #888 #888 #888;
+	background-color: maroon;
+*/
+
+.timeWarningX {
+    background-image: url("./images/alert.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.msnColDta {
+    font-size: 8pt;
+    /* Modded by Di; was '10pt' */
+    line-height: 8pt;
+    /* Added by Di */
+    text-align: center;
+    padding-left: 2px;
+    /* Added by Di */
+    padding-right: 2px;
+    /* Added by Di */
+    /* color: #333; */
+    border: solid 1px black;
+}
+
+.msnColHdr {
+    font-size: 8pt;
+    /* Modded by Di; was '9pt' */
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+form {
+    font-size: 8pt;
+}
+
+input[type='text'],
+textarea {
+    border: solid 1px;
+    border-color: #aaa;
+    padding: 2px;
+    font-size: 8pt;
+}
+
+.button {
+    height: 18px;
+    border: 1px solid;
+    border-color: #ffc8a4 #7d3302 #3f1a01 #ff9a57;
+    border-color: #cff #699 #366 #9cc;
+    border-color: #99f #33f #00f #66f;
+    padding: 0px 3px 0px 3px;
+    font-size: 9px;
+    /* 	font:  9px verdana, sans-serif; 	width: 30px; 	width: 60px; 	color: #333333; 	color: #ffffff; 	color: #000000; */
+    background-color: #ff6600;
+    background-color: #cccccc;
+    text-decoration: none;
+    text-align: center;
+    margin: 3px;
+    cursor: pointer;
+}
+
+#statusUpdForm select {
+    width: 150px;
+    font-size: 8pt;
+}
+
+.frmLabel {
+    background-color: #333;
+    background-color: #cfc;
+    color: #333;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 10pt;
+    background-color: #04c;
+    color: #ccc;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+
+/*
+    width: 30%;
+*/
+
+.frmDataCellHdr {
+    background-color: #333;
+    background-color: #cfc;
+    color: #333;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    width: 34%;
+    font-weight: bold;
+    font-size: 9pt;
+    background-color: #04c;
+    color: #ccc;
+}
+
+.frmDataCell {
+    background-color: #fff;
+    color: #333;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+
+
+/*
+    width: 34%;
+*/
+
+.txtTable {
+    border: 0px 1px 0px 0px solid #000;
+    border-right: solid 1px #000;
+    border: solid 0px #04c;
+    border: solid 0px 1px 0px 0px #000;
+}
+
+
+/*
+	border-color: #ffc8a4 #7d3302 #3f1a01 #ff9a57;
+	border-color: #cff #699 #366 #9cc;
+	border-color: #99f #33f #00f #66f;
+    width: 40%;
+*/
+
+.txtLabelXXX {
+    background-color: #04c;
+    color: #ccc;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+code {
+    font-size: 8pt;
+}
+
+.txtValue {
+    color: #333;
+    background-color: #fff;
+    color: #333;
+    background-color: #ccc;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 60%;
+    text-align: left;
+}
+
+#pntEditForm divA {
+    border: 1px solid red !important;
+}
+
+#pntEditForm {
+    z-index: 9002;
+    /*over nine thousand*/
+    position: absolute;
+    background-color: #eee;
+    background-color: ThreeDFace;
+    width: 400px;
+    left: 320px;
+    top: 160px;
+}
+
+#plDiv {
+    z-index: 9003;
+    /*over nine thousand*/
+    position: absolute;
+    background-color: #eee;
+    background-color: ThreeDFace;
+    width: 800px;
+    left: 10px;
+    top: 10px;
+    color: #36c;
+    font-size: 8pt;
+}
+
+
+/*
+    height: 145px;
+*/
