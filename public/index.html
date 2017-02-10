@@ -1,4 +1,4 @@
-function editDTG() { $('#editDtgForm').load('/pages/editDtgForm.html'); } tStr = 'abcd';
+<!--function editDTG() { $('#editDtgForm').load('/pages/editDtgForm.html'); } tStr = 'abcd';-->
 <link rel='stylesheet' href='/css/main.css' />
 <link href="/jquery-ui/themes/sunny/jquery-ui.css" rel="stylesheet" type="text/css" />
 <link href="/css/ui-widget-override.css" rel="stylesheet" type="text/css" />
@@ -7,13 +7,20 @@ function editDTG() { $('#editDtgForm').load('/pages/editDtgForm.html'); } tStr =
 <script src="/jquery-ui/jquery-ui.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/loadForms.js"></script>
+<script src="/js/editDtgForm.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        firstLoad();
+    });
+</script>
 </head>
 
 <body>
     <div id='editDtgForm' align=='center'></div>
 
     <div id='airPlanDiv'>
-        <div id='header'>Air Execution<span id='hdrDateA'></span></div>
+        <div id='header'>Air Execution</div>
         <div id='content'>
             <table border='0' width='100%' cellspacing="0" cellpadding='0' class="msnGrid">
                 <thead>

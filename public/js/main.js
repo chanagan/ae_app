@@ -221,6 +221,8 @@ function setReqDate(dateText, inst) {
 };
 
 function firstLoad() {
+    execDate = $('#hdrDateA').text();
+    execDate = '20160322';
     //    alert("show plan for " + execDate);
     planLoad();
 
@@ -237,12 +239,3 @@ function firstLoad() {
         buttonImageOnly: true
     });
 };
-
-$(document)
-    .ready(function() {
-        execDate = $('#hdrDateA').text();
-        execDate = '20160322';
-        firstLoad();
-        // alert('test:' + execDate);
-        // console.log("ready!");
-    });
