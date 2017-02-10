@@ -1,0 +1,57 @@
+function editDTG() { $('#editDtgForm').load('/pages/editDtgForm.html'); } tStr = 'abcd';
+<link rel='stylesheet' href='/css/main.css' />
+<link href="/jquery-ui/themes/sunny/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="/css/ui-widget-override.css" rel="stylesheet" type="text/css" />
+
+<script src="/jquery/jquery.js"></script>
+<script src="/jquery-ui/jquery-ui.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/loadForms.js"></script>
+</head>
+
+<body>
+    <div id='editDtgForm' align=='center'></div>
+
+    <div id='airPlanDiv'>
+        <div id='header'>Air Execution<span id='hdrDateA'></span></div>
+        <div id='content'>
+            <table border='0' width='100%' cellspacing="0" cellpadding='0' class="msnGrid">
+                <thead>
+                    <tr class="gridHeader">
+                        <!--
+ 			<td colspan=2>
+				Test Add a Flight 
+				&nbsp;&nbsp;&nbsp;
+				<img style="vertical-align:bottom;" 
+					src="../icons/add-blue.png" 
+					alt="Add a new flight" height="16" width="16"
+					onclick="popupAddFlightNew(); return false;" />
+
+            </td>
+            <td colspan='15' >
+-->
+                        <td colspan='17'>
+                            Schedule for
+                            <input type="text" id="requestDate" size="12" maxlength="12" class="entryField">
+                        </td>
+                        <td>Add a Flight &nbsp;&nbsp;&nbsp;
+                            <a href="http://www.jiatfs.southcom.smil.mil:82/EDB/missions/air/dataPage.html?action=add&mode=airExec" target='_new'>
+                                <img style="vertical-align: bottom;" src="../icons/add-blue.png" alt="Add a new flight" height="16" width="16" />
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr class="colHeader" id="colLbls">
+                    </tr>
+                </thead>
+                <tbody id='gridTblBdy' class="gridBody">
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var pageLoc;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    pageLoc = 'index.html';
+    res.sendfile(pageLoc);
+    // res.render('index', { title: 'Express' });
     // //    res.sendfile('index.html');
 });
 

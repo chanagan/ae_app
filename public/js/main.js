@@ -206,16 +206,42 @@ function planLoad() {
     });
 }
 
+function setReqDate(dateText, inst) {
+    var tStr;
+    tStr = '1234';
+
+    execDate = $('#requestDate').val();
+    execDatePcs = execDate.split('-');
+
+    if (execDatePcs[0] < 10) {
+        execDatePcs[0] = leftPad(execDatePcs, 2);
+        execDate = execDatePcs.join('-');
+        $('#requestDate').val(execDate);
+    };
+};
+
 function firstLoad() {
     //    alert("show plan for " + execDate);
     planLoad();
 
+    loadEditDtgForm();
+
     setupGridCols();
-}
+
+    $('requestDate').datepicker({
+        dateFormat: 'dd-M-yyyy',
+        onSelect: function(dateText, inst) {
+            setReqDate(dateText, inst);
+        },
+        buttonImage: '/icons/cal.png',
+        buttonImageOnly: true
+    });
+};
 
 $(document)
     .ready(function() {
         execDate = $('#hdrDateA').text();
+        execDate = '20160322';
         firstLoad();
         // alert('test:' + execDate);
         // console.log("ready!");
