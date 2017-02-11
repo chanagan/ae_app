@@ -3,6 +3,27 @@ var currentDate, currDateTime;
 var execDate, thisDate;
 var execDatePcs;
 
+
+function getCurrentTime() {
+    currentDate = new Date();
+    var tDateString, tDay, tHr, tMin;
+    var uDatAry, uDay, uMon, uYear;
+    tDay = currentDate.getUTCDate();
+    tHr = currentDate.getUTCHours();
+    tMin = currentDate.getUTCMinutes();
+
+    tDateString = currentDate.toUTCString();
+    uDatAry = tDateString.split(' ');
+
+    uDay = uDatAry[1];
+    uMon = uDatAry[2];
+    uYear = uDatAry[3];
+    thisDate = uDay + '-' + uMon + '-' + uYear;
+
+    currDateTime = tDay + '-' + tHr + tMin;
+}
+
+
 function getDispTime(fullDate) {
     if (fullDate.length) {
         var tmpDatPcs = fullDate.split(':');
@@ -214,15 +235,21 @@ function setReqDate(dateText, inst) {
     execDatePcs = execDate.split('-');
 
     if (execDatePcs[0] < 10) {
-        execDatePcs[0] = leftPad(execDatePcs, 2);
+        execDatePcs[0] = leftPad(execDatePcs[0], 2);
         execDate = execDatePcs.join('-');
         $('#requestDate').val(execDate);
     };
+
+    planLoad();
 };
 
 function firstLoad() {
     execDate = $('#hdrDateA').text();
     execDate = '20160322';
+
+    getCurrentTime();
+    execDate = thisDate;
+    $('#requestDate').val(execDate);
     //    alert("show plan for " + execDate);
     planLoad();
 
@@ -230,12 +257,25 @@ function firstLoad() {
 
     setupGridCols();
 
-    $('requestDate').datepicker({
-        dateFormat: 'dd-M-yyyy',
+    $("#requestDate").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd-M-yy',
         onSelect: function(dateText, inst) {
             setReqDate(dateText, inst);
         },
         buttonImage: '/icons/cal.png',
         buttonImageOnly: true
+            //        showAnim: 'fold',
+            // disabled: false
     });
+
+    // $('requestDate').datepicker({
+    //     dateFormat: 'dd-M-yyyy',
+    //     onSelect: function(dateText, inst) {
+    //         setReqDate(dateText, inst);
+    //     },
+    //     buttonImage: '/icons/cal.png',
+    //     buttonImageOnly: true
+    // });
 };
