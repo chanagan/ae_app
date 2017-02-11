@@ -3,6 +3,27 @@ var currentDate, currDateTime;
 var execDate, thisDate;
 var execDatePcs;
 
+
+function getCurrentTime() {
+    currentDate = new Date();
+    var tDateString, tDay, tHr, tMin;
+    var uDatAry, uDay, uMon, uYear;
+    tDay = currentDate.getUTCDate();
+    tHr = currentDate.getUTCHours();
+    tMin = currentDate.getUTCMinutes();
+
+    tDateString = currentDate.toUTCString();
+    uDatAry = tDateString.split(' ');
+
+    uDay = uDatAry[1];
+    uMon = uDatAry[2];
+    uYear = uDatAry[3];
+    thisDate = uDay + '-' + uMon + '-' + uYear;
+
+    currDateTime = tDay + '-' + tHr + tMin;
+}
+
+
 function getDispTime(fullDate) {
     if (fullDate.length) {
         var tmpDatPcs = fullDate.split(':');
@@ -132,6 +153,45 @@ function makeGridRow(colRowObj, gridRow) {
 
 }
 
+function gridClicked(gridRow) {
+
+    // if clicked on image, edit the whole row
+    if (gridRow.srcElement.nodeName == 'IMG') {
+        openEditForm(gridRow);
+        return;
+    }
+
+    // this is cell clicked on
+    selObj = $(gridRow.srcElement);
+    selColIdx = selObj.attr('cellIndex');
+
+    gridCol = gridColumns[selColIdx];
+
+    if (!gridCol.typEdit) {
+        //        alert('no edit: ' + gridCol.label);
+        return;
+    }
+
+    switch (gridCol.typEdit) {
+        case 'dtg':
+            editDTG();
+            break;
+
+        case 'stat':
+            editStatus();
+            break;
+
+        case 'yn':
+            editYn();
+            break;
+
+        case 'typArea':
+            editTypArea();
+            break;
+
+    }
+}
+
 function planLoadSuccess(data, textStatus) {
     // so now make a grid out of the JSON object we came in with
 
@@ -206,17 +266,66 @@ function planLoad() {
     });
 }
 
+function setReqDate(dateText, inst) {
+    var tStr;
+    tStr = '1234';
+
+    execDate = $('#requestDate').val();
+    execDatePcs = execDate.split('-');
+
+    if (execDatePcs[0] < 10) {
+        execDatePcs[0] = leftPad(execDatePcs[0], 2);
+        execDate = execDatePcs.join('-');
+        $('#requestDate').val(execDate);
+    };
+
+    planLoad();
+};
+
 function firstLoad() {
+    execDate = $('#hdrDateA').text();
+    execDate = '20160322';
+
+    getCurrentTime();
+    execDate = thisDate;
+    execDate = '20160322';
+    $('#requestDate').val(execDate);
     //    alert("show plan for " + execDate);
+
+    execDatePcs = execDate.split('-');
+
+    // set the onClick for the mission grid
+    $("#gridTblBdy").click(function(eventObject) {
+        var tStr = '1234';
+        gridClicked(eventObject);
+    });
+
+
     planLoad();
 
-    setupGridCols();
-}
+    loadEditDtgForm();
 
-$(document)
-    .ready(function() {
-        execDate = $('#hdrDateA').text();
-        firstLoad();
-        // alert('test:' + execDate);
-        // console.log("ready!");
+    setupGridCols();
+
+    $("#requestDate").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd-M-yy',
+        onSelect: function(dateText, inst) {
+            setReqDate(dateText, inst);
+        },
+        buttonImage: '/icons/cal.png',
+        buttonImageOnly: true
+            //        showAnim: 'fold',
+            // disabled: false
     });
+
+    // $('requestDate').datepicker({
+    //     dateFormat: 'dd-M-yyyy',
+    //     onSelect: function(dateText, inst) {
+    //         setReqDate(dateText, inst);
+    //     },
+    //     buttonImage: '/icons/cal.png',
+    //     buttonImageOnly: true
+    // });
+};
