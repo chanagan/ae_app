@@ -153,6 +153,45 @@ function makeGridRow(colRowObj, gridRow) {
 
 }
 
+function gridClicked(gridRow) {
+
+    // if clicked on image, edit the whole row
+    if (gridRow.srcElement.nodeName == 'IMG') {
+        openEditForm(gridRow);
+        return;
+    }
+
+    // this is cell clicked on
+    selObj = $(gridRow.srcElement);
+    selColIdx = selObj.attr('cellIndex');
+
+    gridCol = gridColumns[selColIdx];
+
+    if (!gridCol.typEdit) {
+        //        alert('no edit: ' + gridCol.label);
+        return;
+    }
+
+    switch (gridCol.typEdit) {
+        case 'dtg':
+            editDTG();
+            break;
+
+        case 'stat':
+            editStatus();
+            break;
+
+        case 'yn':
+            editYn();
+            break;
+
+        case 'typArea':
+            editTypArea();
+            break;
+
+    }
+}
+
 function planLoadSuccess(data, textStatus) {
     // so now make a grid out of the JSON object we came in with
 
@@ -249,8 +288,19 @@ function firstLoad() {
 
     getCurrentTime();
     execDate = thisDate;
+    execDate = '20160322';
     $('#requestDate').val(execDate);
     //    alert("show plan for " + execDate);
+
+    execDatePcs = execDate.split('-');
+
+    // set the onClick for the mission grid
+    $("#gridTblBdy").click(function(eventObject) {
+        var tStr = '1234';
+        gridClicked(eventObject);
+    });
+
+
     planLoad();
 
     loadEditDtgForm();
