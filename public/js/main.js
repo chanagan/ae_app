@@ -163,7 +163,7 @@ function gridClicked(gridRow) {
 
     // this is cell clicked on
     // selObj = $(gridRow.target);
-    selColIdx = $(gridRow.target.cellIndex)[0];
+    var selColIdx = $(gridRow.target.cellIndex)[0];
 
     var thisGridCols = gridColumns[selColIdx];
 
@@ -174,7 +174,7 @@ function gridClicked(gridRow) {
 
     switch (thisGridCols.typEdit) {
         case 'dtg':
-            editDTG();
+            editDTG(gridRow);
             break;
 
         case 'stat':
