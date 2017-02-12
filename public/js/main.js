@@ -156,23 +156,23 @@ function makeGridRow(colRowObj, gridRow) {
 function gridClicked(gridRow) {
 
     // if clicked on image, edit the whole row
-    if (gridRow.srcElement.nodeName == 'IMG') {
+    if (gridRow.target.nodeName == 'IMG') {
         openEditForm(gridRow);
         return;
     }
 
     // this is cell clicked on
-    selObj = $(gridRow.srcElement);
-    selColIdx = selObj.attr('cellIndex');
+    // selObj = $(gridRow.target);
+    selColIdx = $(gridRow.target.cellIndex)[0];
 
-    gridCol = gridColumns[selColIdx];
+    var thisGridCols = gridColumns[selColIdx];
 
-    if (!gridCol.typEdit) {
+    if (!thisGridCols.typEdit) {
         //        alert('no edit: ' + gridCol.label);
         return;
     }
 
-    switch (gridCol.typEdit) {
+    switch (thisGridCols.typEdit) {
         case 'dtg':
             editDTG();
             break;
