@@ -10,5 +10,9 @@ function editDTG(gridRow) {
     var selRowObj = $(selGridRowObj).data().rowData;
     //    gridRow.data('rowData', colRowObj);
 
+
+    $('#editDtgForm').dialog('option', 'title', selRowObj.callsign);
+    $('#editDtgForm').dialog('open');
+
     tStr = 'abcd';
 }

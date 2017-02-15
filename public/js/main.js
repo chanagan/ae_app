@@ -196,7 +196,8 @@ function planLoadSuccess(data, textStatus) {
     // so now make a grid out of the JSON object we came in with
 
     //    var flt_json = JSON.parse(data);
-    var flt_json = data.flight;
+    var flt_json = data.data;
+    // var flt_json = data.flight;
     var t1 = 1234;
 
     // 1 and 2 - not using block separators (US,RS,GS), so
@@ -236,7 +237,8 @@ function planLoad() {
         dataType: 'json',
         //        url: "/EDB/missions/air_exec/getMissionGrid.pl",
         //        url: "http://localhost:3001/get_flights/" + '03-22-2016',
-        url: "http://localhost:3001/get_flights/" + execDate,
+        url: "http://localhost:3001/ae_svc/getFlights/" + execDate,
+        // url: "http://localhost:3001/get_flights/" + execDate,
         processData: true,
         //        data: "03-22-2016",
         success: function(data, textStatus, zz) {
