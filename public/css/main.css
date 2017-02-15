@@ -302,9 +302,12 @@ select {
 /*
 	color: #444;
 	border: solid 1px black;
-	background-color: #efefef;	/* Modded by Di; was 'white' */
+	background-color: #efefef;	
+    -- Modded by Di; was 'white' 
 
-* / .gridBody td {
+*/
+
+.gridBody td {
     background-color: mauve;
 }
 

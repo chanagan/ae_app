@@ -5,7 +5,7 @@ var pageLoc;
 /* GET home page. */
 router.get('/', function(req, res, next) {
     pageLoc = 'index.html';
-    res.sendfile(pageLoc);
+    res.sendFile(pageLoc);
     // res.render('index', { title: 'Express' });
     // //    res.sendfile('index.html');
 });
