@@ -57,13 +57,13 @@ function setupGridCols() {
     gridColumns.push(tmpGrdCol);
     tmpGrdCol = new gridCol('loc_to', 'TO', false);
     gridColumns.push(tmpGrdCol);
-    tmpGrdCol = new gridCol('', 'Sched<br />Takeoff', false);
+    tmpGrdCol = new gridCol('takeoff_date_time', 'Sched<br />Takeoff', false);
     gridColumns.push(tmpGrdCol);
-    tmpGrdCol = new gridCol('act_takeoff', 'Actual<br />Takeoff', 'dtg');
+    tmpGrdCol = new gridCol('actual_takeoff_date_time', 'Actual<br />Takeoff', 'dtg');
     gridColumns.push(tmpGrdCol);
-    tmpGrdCol = new gridCol('land_dtg_sked', 'Sched<br />Landing', 'dtg');
+    tmpGrdCol = new gridCol('land_date_time', 'Sched<br />Landing', 'dtg');
     gridColumns.push(tmpGrdCol);
-    tmpGrdCol = new gridCol('land_dtg_act', 'Actual<br />Landing', 'dtg');
+    tmpGrdCol = new gridCol('actual_land_date_time', 'Actual<br />Landing', 'dtg');
     gridColumns.push(tmpGrdCol);
     tmpGrdCol = new gridCol('flt_stat', 'Status<br />Reason', 'stat');
     gridColumns.push(tmpGrdCol);
@@ -71,9 +71,9 @@ function setupGridCols() {
     gridColumns.push(tmpGrdCol);
     tmpGrdCol = new gridCol('', 'Mission Type<br />Area', 'typArea');
     gridColumns.push(tmpGrdCol);
-    tmpGrdCol = new gridCol('on_sta_dtg_act', 'On<br />Station', 'dtg');
+    tmpGrdCol = new gridCol('onstn_actual_dtg', 'On<br />Station', 'dtg');
     gridColumns.push(tmpGrdCol);
-    tmpGrdCol = new gridCol('off_sta_dtg_act', 'Off<br />Station', 'dtg');
+    tmpGrdCol = new gridCol('offstn_actual_dtg', 'Off<br />Station', 'dtg');
     gridColumns.push(tmpGrdCol);
     tmpGrdCol = new gridCol('', 'Status<br />Reason', 'stat');
     gridColumns.push(tmpGrdCol);
@@ -129,11 +129,11 @@ function makeGridRow(colRowObj, gridRow) {
     gridRow.append("<td class=' " + cl_UW + "'>" + colRowObj.to_loc_sked + "&nbsp;</td>");
     gridRow.append("<td class=' " + cl_UW + "'>" + colRowObj.land_loc_sked + "&nbsp;</td>");
 
-    gridRow.append("<td class=' " + cl_UW + cl_lt_TO + "'>" + colRowObj.to_dtg_sked + "&nbsp;</td>");
-    gridRow.append("<td class='canEdit " + cl_UW + cl_lt_TO + "'>" + colRowObj.to_dtg_act + "&nbsp;</td>");
+    gridRow.append("<td class=' " + cl_UW + cl_lt_TO + "'>" + colRowObj.takeoff_date_time + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_UW + cl_lt_TO + "'>" + colRowObj.actual_takeoff_date_time + "&nbsp;</td>");
 
-    gridRow.append("<td class=' " + cl_LND + cl_lt_LND + "'>" + colRowObj.land_dtg_sked + "&nbsp;</td>");
-    gridRow.append("<td class='canEdit " + cl_LND + cl_lt_LND + "'>" + colRowObj.land_dtg_act + "&nbsp;</td>");
+    gridRow.append("<td class=' " + cl_LND + cl_lt_LND + "'>" + colRowObj.land_date_time + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_LND + cl_lt_LND + "'>" + colRowObj.actual_land_date_time + "&nbsp;</td>");
 
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.flt_stat_resn + "&nbsp;</td>");
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.flt_tacon + "&nbsp;</td>");
@@ -142,8 +142,8 @@ function makeGridRow(colRowObj, gridRow) {
     //  mission columns
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.msn_msn_area + "&nbsp;</td>");
 
-    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.on_sta_dtg_act + "&nbsp;</td>");
-    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.off_sta_dtg_act + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.onstn_actual_dtg + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.offstn_actual_dtg + "&nbsp;</td>");
 
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.msn_stat_resn + "&nbsp;</td>");
     gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.msn_supp_op + "&nbsp;</td>");

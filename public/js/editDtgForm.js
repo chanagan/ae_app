@@ -1,21 +1,45 @@
-function editDTG(gridRow) {
-    var tStr;
-    var selColIdx = $(gridRow.target.cellIndex)[0];
+    var selGridRowObj;
 
-    var thisGridCols = gridColumns[selColIdx];
-    var dtaFld = thisGridCols.dataFld;
-    var dtaFldDtg = dtaFld + '_dtg';
+    function editDTG(gridRow) {
+        var tStr;
+        var selColIdx = $(gridRow.target.cellIndex)[0];
 
-    var selGridRowObj = gridRow.target.parentNode;
-    var selRowObj = $(selGridRowObj).data().rowData;
-    //    gridRow.data('rowData', colRowObj);
+        var thisGridCols = gridColumns[selColIdx];
+        var dtaFld = thisGridCols.dataFld;
+        var dtaFldDtg = dtaFld + '_dtg';
+
+        selGridRowObj = gridRow.target.parentNode;
+        var selRowObj = $(selGridRowObj).data().rowData;
+        //    gridRow.data('rowData', colRowObj);
 
 
-    // show the form
-    $('#editDtgForm').dialog('option', 'title', selRowObj.callsign);
-    $('#editDtgForm').dialog('open');
+        // show the form
+        $('#editDtgForm').dialog('option', 'title', selRowObj.callsign);
+        $('#editDtgForm').dialog('open');
 
-    // display which item we're updating
-    $('#cellLabel').html(thisGridCols.label);
-    tStr = 'abcd';
-}
+        // display which item we're updating
+        $(selGridRowObj).addClass('ui-state-highlight');
+
+        $('#cellLabel').html(thisGridCols.label);
+
+        var tmpHour, tmpMin, tmpDate;
+
+        tmpDate = selRowObj[dtaFld];
+
+        if (tmpDate === null) {
+            tmpDate = execDate;
+        }
+
+        $('#textDat').attr({
+            value: (tmpDate),
+            defaultValue: (tmpDate)
+        });
+
+        $('#textDat').datepicker('setDate', tmpDate);
+
+        tStr = 'abcd';
+    }
+
+    function canxEditDtgForm() {
+        $(selGridRowObj).removeClass('ui-state-highlight');
+    }
