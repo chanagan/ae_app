@@ -30,14 +30,15 @@
             tmpDate = execDate;
         }
 
+        $('#textDat').val(tmpDate);
+
         $('#textDat').attr({
-            value: (tmpDate),
             defaultValue: (tmpDate)
         });
 
         $('#textDat').datepicker('setDate', tmpDate);
 
-        tStr = 'abcd';
+        tStr = 'abcde';
     }
 
     function canxEditDtgForm() {

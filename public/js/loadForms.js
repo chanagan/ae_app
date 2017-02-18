@@ -22,11 +22,12 @@ function loadEditDtgForm() {
         });
 
         $('#textDat').datepicker({
-            dateFormat: 'dd-M-yy',
+            dateFormat: 'yyyymmdd',
             showButtonPanel: true,
             changeMonth: true,
             changeYear: true,
             showOn: 'both',
+            autoOpen: false,
             buttonImage: '/icons/cal.png',
             buttonImageOnly: true,
             showAnim: 'fold',
