@@ -11,7 +11,7 @@ function loadEditDtgForm() {
             },
             buttons: {
                 "Ok": function() {
-                    // updDtgCell();
+                    updDtgCell();
                     $(this).dialog('close');
                 },
                 "Cancel": function() {
@@ -22,16 +22,27 @@ function loadEditDtgForm() {
         });
 
         $('#textDat').datepicker({
-            dateFormat: 'yyyymmdd',
-            showButtonPanel: true,
             changeMonth: true,
             changeYear: true,
-            showOn: 'both',
-            autoOpen: false,
-            buttonImage: '/icons/cal.png',
-            buttonImageOnly: true,
-            showAnim: 'fold',
-            disabled: false
+            dateFormat: 'dd-M-yy',
+            onSelect: function(dateText, inst) {
+                setReqDate(dateText, inst);
+            },
+            showButtonPanel: true,
+            showOn: 'button',
+            buttonImage: '/icons/calendar.png',
+            buttonImageOnly: true
+
+            // dateFormat: 'yyyymmdd',
+            // showButtonPanel: true,
+            // changeMonth: true,
+            // changeYear: true,
+            // showOn: 'both',
+            // autoOpen: false,
+            // buttonImage: '/icons/cal.png',
+            // buttonImageOnly: true,
+            // showAnim: 'fold',
+            // disabled: false
         });
 
     });
