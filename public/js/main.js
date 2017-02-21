@@ -25,12 +25,23 @@ function getCurrentTime() {
 
 
 function getDispTime(fullDate) {
-    if (fullDate.length) {
-        var tmpDatPcs = fullDate.split(':');
-        return tmpDatPcs;
+    var tStr;
+    tStr = '1234';
+
+    var tmpDate;
+    if (fullDate) {
+        tmpDate = fullDate.substr(0, 2) + '-' + fullDate.substr(-4);
     } else {
-        return ['', ''];
+        tmpDate = '';
     }
+    return tmpDate;
+
+    // if (fullDate.length) {
+    //     var tmpDatPcs = fullDate.split(':');
+    //     return tmpDatPcs;
+    // } else {
+    //     return ['', ''];
+    // }
 }
 
 function gridCol(colDtaFld, colLabel, colEdit) {
@@ -112,11 +123,26 @@ function makeGridRow(colRowObj, gridRow) {
     //    cl_lt_TO = (colRowObj.sked_takeoff < currDateTime) ? ' msnLate' : '';
     //    cl_lt_LND = (colRowObj.sked_landing < currDateTime) ? ' msnLate' : '';
 
+    // these are the compound fields
     colRowObj.msn_msn_area = colRowObj.msn_type + ' <br /> ' + colRowObj.msn_area;
     tmpFld = colRowObj.flt_stat_rsn ? ' <br /> ' + colRowObj.flt_stat_rsn : '';
     colRowObj.flt_stat_resn = colRowObj.flt_stat + tmpFld;
     tmpFld = colRowObj.msn_stat_rsn ? ' <br /> ' + colRowObj.msn_stat_rsn : '';
     colRowObj.msn_stat_resn = colRowObj.msn_stat + tmpFld;
+
+    // these are the default date fields (for blank entries)
+    colRowObj.actual_takeoff_date_time_def = colRowObj.takeoff_date_time;
+    colRowObj.actual_land_date_time_def = colRowObj.land_date_time;
+
+    // these are the shortened date fields
+    colRowObj.takeoff_date_time_dsp = getDispTime(colRowObj.takeoff_date_time);
+    colRowObj.actual_takeoff_date_time_dsp = getDispTime(colRowObj.actual_takeoff_date_time);
+
+    colRowObj.land_date_time_dsp = getDispTime(colRowObj.land_date_time);
+    colRowObj.actual_land_date_time_dsp = getDispTime(colRowObj.actual_land_date_time);
+
+    colRowObj.onstn_actual_dtg_dsp = getDispTime(colRowObj.onstn_actual_dtg);
+    colRowObj.offstn_actual_dtg_dsp = getDispTime(colRowObj.offstn_actual_dtg);
 
     //    infoImg = $("<img src='/EDB/images/iconsEDB/icons/information.png' alt='Takeoff and Landing dates are required.' />");
 
@@ -129,11 +155,15 @@ function makeGridRow(colRowObj, gridRow) {
     gridRow.append("<td class=' " + cl_UW + "'>" + colRowObj.to_loc_sked + "&nbsp;</td>");
     gridRow.append("<td class=' " + cl_UW + "'>" + colRowObj.land_loc_sked + "&nbsp;</td>");
 
-    gridRow.append("<td class=' " + cl_UW + cl_lt_TO + "'>" + colRowObj.takeoff_date_time + "&nbsp;</td>");
-    gridRow.append("<td class='canEdit " + cl_UW + cl_lt_TO + "'>" + colRowObj.actual_takeoff_date_time + "&nbsp;</td>");
+    gridRow.append("<td class=' " + cl_UW + cl_lt_TO + "'>" + colRowObj.takeoff_date_time_dsp + "&nbsp;</td>");
+    // gridRow.append("<td class=' " + cl_UW + cl_lt_TO + "'>" + colRowObj.takeoff_date_time + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_UW + cl_lt_TO + "'>" + colRowObj.actual_takeoff_date_time_dsp + "&nbsp;</td>");
+    // gridRow.append("<td class='canEdit " + cl_UW + cl_lt_TO + "'>" + colRowObj.actual_takeoff_date_time + "&nbsp;</td>");
 
-    gridRow.append("<td class=' " + cl_LND + cl_lt_LND + "'>" + colRowObj.land_date_time + "&nbsp;</td>");
-    gridRow.append("<td class='canEdit " + cl_LND + cl_lt_LND + "'>" + colRowObj.actual_land_date_time + "&nbsp;</td>");
+    gridRow.append("<td class=' " + cl_LND + cl_lt_LND + "'>" + colRowObj.land_date_time_dsp + "&nbsp;</td>");
+    // gridRow.append("<td class=' " + cl_LND + cl_lt_LND + "'>" + colRowObj.land_date_time + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_LND + cl_lt_LND + "'>" + colRowObj.actual_land_date_time_dsp + "&nbsp;</td>");
+    // gridRow.append("<td class='canEdit " + cl_LND + cl_lt_LND + "'>" + colRowObj.actual_land_date_time + "&nbsp;</td>");
 
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.flt_stat_resn + "&nbsp;</td>");
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.flt_tacon + "&nbsp;</td>");
@@ -142,8 +172,10 @@ function makeGridRow(colRowObj, gridRow) {
     //  mission columns
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.msn_msn_area + "&nbsp;</td>");
 
-    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.onstn_actual_dtg + "&nbsp;</td>");
-    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.offstn_actual_dtg + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.onstn_actual_dtg_dsp + "&nbsp;</td>");
+    // gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.onstn_actual_dtg + "&nbsp;</td>");
+    gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.offstn_actual_dtg_dsp + "&nbsp;</td>");
+    // gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.offstn_actual_dtg + "&nbsp;</td>");
 
     gridRow.append("<td class='canEdit " + cl_LND + "'>" + colRowObj.msn_stat_resn + "&nbsp;</td>");
     gridRow.append("<td class='canEdit " + cl_UW + "'>" + colRowObj.msn_supp_op + "&nbsp;</td>");
@@ -286,11 +318,14 @@ function setReqDate(dateText, inst) {
 
 function firstLoad() {
     execDate = $('#hdrDateA').text();
-    execDate = '20160322';
+    execDate = '22-Mar-2016';
+    // execDate = '20160322';
 
     getCurrentTime();
     execDate = thisDate;
-    execDate = '20160322';
+    // execDate = '20160322';
+    execDate = '22-Mar-2016';
+
     $('#requestDate').val(execDate);
     //    alert("show plan for " + execDate);
 
@@ -316,12 +351,14 @@ function firstLoad() {
         onSelect: function(dateText, inst) {
             setReqDate(dateText, inst);
         },
-        buttonImage: '/icons/cal.png',
+        showOn: 'button',
+        buttonImage: '/icons/calendar.png',
         buttonImageOnly: true
             //        showAnim: 'fold',
             // disabled: false
     });
 
+    // $("input[type=text]").focus().select();
     // $('requestDate').datepicker({
     //     dateFormat: 'dd-M-yyyy',
     //     onSelect: function(dateText, inst) {
@@ -330,4 +367,4 @@ function firstLoad() {
     //     buttonImage: '/icons/cal.png',
     //     buttonImageOnly: true
     // });
-};
+}
